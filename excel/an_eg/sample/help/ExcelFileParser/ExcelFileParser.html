@@ -1,0 +1,699 @@
+<html>
+<head>
+<title>Docs For Class ExcelFileParser</title>
+<link rel="stylesheet" type="text/css" href="../media/style.css">
+</head>
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0" height="48" width="100%">
+  <tr>
+    <td class="header_top">ExcelFileParser</td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+  <tr>
+    <td class="header_menu">
+  		  [ <a href="../classtrees_ExcelFileParser.html" class="menu">class tree: ExcelFileParser</a> ]
+		  [ <a href="../elementindex_ExcelFileParser.html" class="menu">index: ExcelFileParser</a> ]
+		  [ <a href="../elementindex.html" class="menu">all elements</a> ]
+    </td>
+  </tr>
+  <tr><td class="header_line"><img src="../media/empty.png" width="1" height="1" border="0" alt=""  /></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="200" class="menu">
+      <b>Packages:</b><br />
+              <a href="../li_default.html">default</a><br />
+              <a href="../li_DataProvider.html">DataProvider</a><br />
+              <a href="../li_DebugOut.html">DebugOut</a><br />
+              <a href="../li_ExcelDateUtil.html">ExcelDateUtil</a><br />
+              <a href="../li_ExcelFileParser.html">ExcelFileParser</a><br />
+              <a href="../li_ExcelFont.html">ExcelFont</a><br />
+            <br /><br />
+                        <b>Files:</b><br />
+      	  <div class="package">
+			<a href="../ExcelFileParser/_parser_pro_excelparser_php.html">		excelparser.php
+		</a><br>
+	  </div><br />
+      
+            <b>Classes:</b><br />
+        <div class="package">
+		    		<a href="../ExcelFileParser/ExcelFileParser.html">ExcelFileParser</a><br />
+	  </div>
+                </td>
+    <td>
+      <table cellpadding="10" cellspacing="0" width="100%" border="0"><tr><td valign="top">
+
+<h1>Class: ExcelFileParser</h1>
+Source Location: /excelparser.php<br /><br />
+
+
+<table width="100%" border="0">
+<tr><td valign="top">
+
+<h3><a href="#class_details">Class Overview</a></h3>
+<pre></pre><br />
+<div class="description"></div><br /><br />
+<h4>Author(s):</h4>
+<ul>
+        </ul>
+
+
+
+
+    
+    
+<h4>Version:</h4>
+<ul>
+  <li>4.2</li>
+</ul>
+
+
+</td>
+
+<td valign="top">
+<h3><a href="#class_vars">Variables</a></h3>
+<ul>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$biff_version">$biff_version</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$dbglog">$dbglog</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$dp">$dp</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$fat">$fat</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$fonts">$fonts</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$formats">$formats</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$max_blocks">$max_blocks</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$max_sblocks">$max_sblocks</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$sfat">$sfat</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#var$xf">$xf</a></li>
+  </ul>
+</td>
+
+
+<td valign="top">
+<h3><a href="#class_methods">Methods</a></h3>
+<ul>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodExcelFileParser">ExcelFileParser</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodfind_stream">find_stream</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodgetByteString">getByteString</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodgetDateArray">getDateArray</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodgetUnicodeString">getUnicodeString</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodget_blocks_chain">get_blocks_chain</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodInitParser">InitParser</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodisDateFormat">isDateFormat</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodParseFromFile">ParseFromFile</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodParseFromString">ParseFromString</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodparse_workbook">parse_workbook</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodparse_worksheet">parse_worksheet</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodpopulateFormat">populateFormat</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodrk_decode">rk_decode</a></li>
+    <li><a href="../ExcelFileParser/ExcelFileParser.html#methodxls2tstamp">xls2tstamp</a></li>
+  </ul>
+</td>
+
+</tr></table>
+<hr />
+
+<table width="100%" border="0"><tr>
+
+
+
+
+
+
+</tr></table>
+<hr />
+
+<a name="class_details"></a>
+<h3>Class Details</h3>
+<div class="tags">
+[line 69]<br />
+<br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>version:</b>&nbsp;&nbsp;</td><td>4.2</td>
+  </tr>
+</table>
+</div>
+</div><br /><br />
+<div class="top">[ <a href="#top">Top</a> ]</div><br />
+
+<hr />
+<a name="class_vars"></a>
+<h3>Class Variables</h3>
+<div class="tags">
+	<a name="var$biff_version"></a>
+	<p></p>
+	<h4>$biff_version = <span class="value"></span></h4>
+	<p>[line 92]</p>
+  <br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>var:</b>&nbsp;&nbsp;</td><td>Excel file BIFF version (7 = Excel 5-7, 8 = 2000, 10 = XP)</td>
+  </tr>
+</table>
+</div>
+
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>int</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$dbglog"></a>
+	<p></p>
+	<h4>$dbglog = <span class="value"></span></h4>
+	<p>[line 87]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$dp"></a>
+	<p></p>
+	<h4>$dp = <span class="value">&nbsp;null</span></h4>
+	<p>[line 71]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$fat"></a>
+	<p></p>
+	<h4>$fat = <span class="value"></span></h4>
+	<p>[line 77]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$fonts"></a>
+	<p></p>
+	<h4>$fonts = <span class="value"></span></h4>
+	<p>[line 85]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$formats"></a>
+	<p></p>
+	<h4>$formats = <span class="value"></span></h4>
+	<p>[line 83]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$max_blocks"></a>
+	<p></p>
+	<h4>$max_blocks = <span class="value"></span></h4>
+	<p>[line 73]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$max_sblocks"></a>
+	<p></p>
+	<h4>$max_sblocks = <span class="value"></span></h4>
+	<p>[line 74]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$sfat"></a>
+	<p></p>
+	<h4>$sfat = <span class="value"></span></h4>
+	<p>[line 78]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+	<a name="var$xf"></a>
+	<p></p>
+	<h4>$xf = <span class="value"></span></h4>
+	<p>[line 84]</p>
+  
+  <br />
+	<div class="tags">
+  <table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <td><b>Type:</b>&nbsp;&nbsp;</td>
+      <td>mixed</td>
+    </tr>
+      </table>
+	</div><br /><br />
+	<div class="top">[ <a href="#top">Top</a> ]</div><br />
+</div><br />
+
+<hr />
+<a name="class_methods"></a>
+<h3>Class Methods</h3>
+<div class="tags">
+  <hr />
+	<a name="methodExcelFileParser"></a>
+	<h3>constructor ExcelFileParser <span class="smalllinenumber">[line 115]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>ExcelFileParser ExcelFileParser(
+[mixed
+$logfile = ""], [mixed
+$level = ABC_NO_LOG], string
+$logfilename, int
+$logtype)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Create Excel parser object<br /><br /><p>Log type can be one of the following: 				ABC_CRITICAL 				ABC_ERROR 				ABC_ALERT 				ABC_WARNING 				ABC_NOTICE 				ABC_INFO 				ABC_DEBUG 				ABC_TRACE 				ABC_VAR_DUMP 				ABC_NO_LOG</p><p>Bitwise combination of these flags is not allowed. 			You can use only one of them.</p><br /><br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$logfilename</b>&nbsp;&nbsp;</td>
+        <td>- optional parameter (filename for debug logging). Default value - empty string, no logging.</td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$logtype</b>&nbsp;&nbsp;</td>
+        <td>log severity. Default value ABC_NO_LOG - disable logging.</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodfind_stream"></a>
+	<h3>method find_stream <span class="smalllinenumber">[line 308]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void find_stream(
+mixed
+$dir, mixed
+$item_name, [mixed
+$item_num = 0])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetByteString"></a>
+	<h3>method getByteString <span class="smalllinenumber">[line 251]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void getByteString(
+mixed
+$str, mixed
+$ofs)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Returns string from stream<br /><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>deprecated:</b>&nbsp;&nbsp;</td><td></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetDateArray"></a>
+	<h3>method getDateArray <span class="smalllinenumber">[line 204]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void getDateArray(
+mixed
+$date)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodgetUnicodeString"></a>
+	<h3>method getUnicodeString <span class="smalllinenumber">[line 230]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void getUnicodeString(
+mixed
+$str, mixed
+$ofs)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodget_blocks_chain"></a>
+	<h3>method get_blocks_chain <span class="smalllinenumber">[line 272]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed get_blocks_chain(
+int
+$start, [bool
+$small_fat = false])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Get blocks chain<br /><br /><br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$start</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">bool&nbsp;&nbsp;</td>
+        <td><b>$small_fat</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodInitParser"></a>
+	<h3>method InitParser <span class="smalllinenumber">[line 1340]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>mixed InitParser(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodisDateFormat"></a>
+	<h3>method isDateFormat <span class="smalllinenumber">[line 212]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>bool isDateFormat(
+array
+$val)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">array&nbsp;&nbsp;</td>
+        <td><b>$val</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodParseFromFile"></a>
+	<h3>method ParseFromFile <span class="smalllinenumber">[line 1329]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void ParseFromFile(
+string
+$filename)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Parse Excel file<br /><br /><p>This function is optimized for memory usage, but the script takes more times 	to be completely executed and to parse the selected data. Use with large files.</p><br /><br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$filename</b>&nbsp;&nbsp;</td>
+        <td>file name</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodParseFromString"></a>
+	<h3>method ParseFromString <span class="smalllinenumber">[line 1315]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>int ParseFromString(
+string
+$contents)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		ParseFromString<br /><br /><p>This function is not optimized for memory usage, but the script takes less times 		to be completely executed and to parse the selected data. Use when parsing speed 		is critical (PHP memory limit can be exceed for huge files and script will terminate!).</p><p>IN: 	string contents - File contents 	string filename - File name of an existing Excel file.</p><br /><br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>0 - success <ol><li>- can't open file</li><li>- file too small to be an Excel file</li><li>- error reading header</li><li>- error reading file</li><li>- This is not an Excel file or file stored in &lt; Excel 5.0</li><li>- file corrupted</li><li>- data not found</li><li>- Unsupported file version</li></ol></td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$contents</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodparse_workbook"></a>
+	<h3>method parse_workbook <span class="smalllinenumber">[line 844]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void parse_workbook(
+mixed
+$f_header, mixed
+$dp)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Parse workbook<br /><br /><br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodparse_worksheet"></a>
+	<h3>method parse_worksheet <span class="smalllinenumber">[line 430]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void parse_worksheet(
+string
+$ws, [int
+$_format_needed = 1])</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		Parse worksheet<br /><br /><br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">string&nbsp;&nbsp;</td>
+        <td><b>$ws</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$_format_needed</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodpopulateFormat"></a>
+	<h3>method populateFormat <span class="smalllinenumber">[line 125]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array populateFormat(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+<h4>Tags:</h4>
+<div class="tags">
+<table border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><b>return:</b>&nbsp;&nbsp;</td><td>list of formats</td>
+  </tr>
+</table>
+</div>
+<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodrk_decode"></a>
+	<h3>method rk_decode <span class="smalllinenumber">[line 377]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>array rk_decode(
+int
+$rk)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		An RK value is an encoded integer or floating-point value. RK values have a size of 4 bytes and are used to decrease filesize for floating-point values.<br /><br /><p>Bit Mask Contents <ol><li>00000001H 0 = Value not changed 1 = Value is multiplied by 100</li><li>00000002H 0 = Floating-point value 1 = Signed integer value</li></ol> 31-2 FFFFFFFCH Encoded value  If bit 1 is cleared, the encoded value represents the 30 most significant bits of an IEEE 754 floating-point value (64-bit  double precision). The 34 least significant bits must be set to zero. If bit 1 is set, the encoded value represents a signed  30-bit integer value. To get the correct integer, the encoded value has to be shifted right arithmetically by 2 bits. If bit  is set, the decoded value (both integer and floating-point) must be divided by 100 to get the final result.</p><p>Examples:  RK value Type Div 100 Encoded value Decoded value Result  3FF00000H float no 3FF00000H 3FF0000000000000H = 1.0 1.0  3FF00001H float yes 3FF00000H 3FF0000000000000H = 1.0 0.01  004B5646H integer no 004B5644H 0012D591H = 1234321 1234321  004B5647H integer yes 004B5644H 0012D591H = 1234321 12343.21</p><br /><br /><br />
+
+
+        <h4>Parameters:</h4>
+    <div class="tags">
+    <table border="0" cellspacing="0" cellpadding="0">
+          <tr>
+        <td class="type">int&nbsp;&nbsp;</td>
+        <td><b>$rk</b>&nbsp;&nbsp;</td>
+        <td>32-bit value</td>
+      </tr>
+        </table>
+    </div><br />
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+  <hr />
+	<a name="methodxls2tstamp"></a>
+	<h3>method xls2tstamp <span class="smalllinenumber">[line 195]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>int xls2tstamp(
+mixed
+$date)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+	
+		<br /><br />
+
+
+        <div class="top">[ <a href="#top">Top</a> ]</div>
+  </div>
+</div><br />
+
+
+        <div class="credit">
+		    <hr />
+		    Documentation generated on Wed,  9 Feb 2005 17:19:52 +0200 by <a href="http://www.phpdoc.org">phpDocumentor 1.3.0RC3</a>
+	      </div>
+      </td></tr></table>
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>

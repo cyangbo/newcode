@@ -1,0 +1,18 @@
+<{include file="header.html" title=通讯录}>
+<form id="addform1" name="form1" method="post" action="?m=contacts&a=edit">
+    <p>姓名：<input name="name" type="text" id="name" value="<{$cts.name}>" /></p>
+    <p class="sex">性别：
+        <input type="radio" name="sex" value="0" checked="checked" />女士
+        <input type="radio" name="sex" value="1" <{if $cts.sex eq 1 }> checked="checked" <{/if}> />先生
+    </p>
+    <p>手机：<input name="mobi" type="text" id="mobi" value="<{$cts.mobile}>"　/></p>
+    <p>邮箱：<input name="email" type="text" id="email" value="<{$cts.email}>"  /></p>
+    <p>地址：<input name="addr" type="text" id="addr" value="<{$cts.address}>" /></p>
+    <p>
+        <input type="hidden" name="todo" value="saveedit" />
+        <input type="hidden" name="id" value="<{$cts.id}>" />
+        <input type="submit" name="Submit" value="修改" />
+    　　<input type="reset" name="Submit2" value="重写" />
+    </p>
+</form>
+<{include file="footer.html"}>

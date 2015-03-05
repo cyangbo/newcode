@@ -1,0 +1,66 @@
+<{include file="header.html" title=通讯录}>
+<div class="mainbox">
+    <form action="?m=contacts&a=getlist" method="post">
+        搜索 <select name="stype" id="stype">
+            <option value="id" <{if $stype eq 'id'}>selected="selected"<{/if}>>ID</option>
+            <option value="name" <{if $stype eq 'name'}>selected="selected"<{/if}>>姓名</option>
+            <option value="email" <{if $stype eq 'email'}>selected="selected"<{/if}>>邮箱</option>
+        </select>
+        <input name="skey" type="text" id="skey" value="<{$skey}>" />
+        <input type="submit" value="提交搜索" />
+    </form>
+</div>
+<table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+    <thead>
+        <tr>
+            <th id="id" class="header" width="60">编号</th>
+            <th id="name" class="header" width="90">姓名</th>
+            <th id="sex" class="header" width="60">性别</th>
+            <th id="mobile" class="header" width="90">手机</th>
+            <th id="email" class="header" width="180">邮箱</th>
+            <th id="address" class="header">地址</th>
+            <td width="100" class="acenter">操作</td>
+        </tr>
+    </thead>
+    <tbody>
+    <{section name=cts_list loop=$cts_list}>
+        <tr class="<{if $smarty.section.cts_list.index is odd}>odd<{/if}>">
+            <td class="acenter"><{$cts_list[cts_list].id}></td>
+            <td><{$cts_list[cts_list].name}></td>
+            <td class="acenter"><{if $cts_list[cts_list].sex eq 1}>男<{else}>女<{/if}></td>
+            <td><{$cts_list[cts_list].mobile}></td>
+            <td><{$cts_list[cts_list].email}></td>
+            <td><{$cts_list[cts_list].address}></td>
+            <td class="acenter"><a href="?m=contacts&a=edit&id=<{$cts_list[cts_list].id}>">编辑</a>&nbsp;|&nbsp;<a href="javascript:void()" onclick="javascript:del(<{$cts_list[cts_list].id}>)" >删除</a></td>
+        </tr>
+    <{/section}>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $("#<{$stype}>").removeClass("desc","asc");
+    $("#<{$ordobj}>").addClass("<{$ordtype}>");
+    $(function() {
+        $("#myTable .header").bind(
+                                    "click", function()
+                                            {
+                                                var ordobj = $(this).attr("id");
+                                                var ordtype = $(this).attr("class");
+                                                var url="?m=contacts&a=getlist&stype=<{$stype}>&skey=<{$skey}>&ordobj="+ordobj;
+                                                if (ordtype.indexOf("asc") >= 0)
+                                                {
+                                                    location.href=url+"&ordtype=desc";
+                                                }
+                                                else
+                                                {
+                                                    location.href=url+"&ordtype=asc";
+                                                }
+                                            }
+                                    );
+    });
+    function del(id)
+    {
+        if(confirm("确认删除?")){location.href="?m=contacts&a=del&id="+id;}
+    }
+</script>
+    <div class="pager mainbox">记录总数:<{$pager_Total}>&nbsp;&nbsp;  <{$pager_PageID}>/<{$pager_Number}>&nbsp;&nbsp;<{$pager_Links}></div>
+<{include file="footer.html"}>

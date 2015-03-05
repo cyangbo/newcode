@@ -1,0 +1,244 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<meta http-equiv="Content-Language" content="UTF-8" />
+<meta content="all" name="robots" />
+<meta name="author" content="drupal水滴" />
+<meta name="description" content=" 数组是PHP中变量的一种，在PHP开发中经常使用，因此非常重要，使用PHP语句打印数组内容。 1、 使用 print_r ( $array/$var )print 是打印的意思，而r则取自Array的单词，那么该函数的功能就是打印数组内容，它既可以打印数组内容，也可以打印普通的变量。print_r ($_REQUEST) ;print_r ($_GET) " />
+<meta name="keywords" content="php,array,var dump,var export,print r,php mysql apache c语言 drupal module theme" />
+<base href="http://www.majormoves.net/" />
+<link rel="alternate" title="drupal水滴" href="feed.php" type="application/rss+xml" />
+<link href="/plugin/prettify/prettify.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="/plugin/prettify/prettify.js"></script>
+<link rel="stylesheet" rev="stylesheet" href="template/neowin-red-3/styles.css" type="text/css" media="all" />
+
+<title>PHP语句打印数组内容 - php, array, var dump, var export, print r</title>
+<script type="text/javascript" src="images/js/common.js?jsver=2.1.1.3626.0"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.majormoves.net/inc/rsd.php" />
+<script type="text/javascript" src="lang/zh-cn/jslang.js?jsver=2.1.1.3626.0"></script>
+<script type="text/javascript" src="images/js/ajax.js?jsver=2.1.1.3626.0"></script>
+<script type="text/javascript" src="images/js/swfobject.js?jsver=2.1.1.3626.0"></script>
+<script type="text/javascript">
+//<![CDATA[
+var moreimagepath="template/neowin-red-3/images";
+var shutajax=0;
+var absbaseurl='http://www.majormoves.net/';
+//]]>
+</script>
+<link title="搜索 drupal水滴" rel="search"  type="application/opensearchdescription+xml"  href="http://www.majormoves.net/inc/opensearch.php" />
+
+
+
+</head>
+<body id="pagelocation-index" onload="prettyPrint()">
+<div id="wrapper">
+        <div id="header">
+            <div id="header-r">
+                <div id="header-l">
+                    <div id="innerHeader">
+                        <div id="blogLogo">
+                        </div>
+                        <div class="blog-header">
+                            <h1 class="blog-title"><a href="/">drupal水滴</a></h1>
+                            <div class="blog-desc">drupal主题|开发|建站教程|majormoves.net</div>
+                        </div>
+                        <div id="header-search">
+                            <form action="visit.php" method="post">
+                            <div id="header-search-box">
+                            <input type="hidden" value="search" name="job" />
+                            <input type="hidden" value="2" name="searchmethod" />
+                            <input type="text" name="keyword" value="Search Blog" maxlength="255" size="31" onfocus="if(this.value=='Search Blog') this.value='';" onblur="if(this.value=='') this.value='Search Blog';" />
+                            </div>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div id="header-bot">
+                        <div id="header-nav">
+                            <ul id="nav">
+                            <li><span id="nav_index" class="activepage"><a href="index.php" ><span id="navitem_index" class="activepageitem">首页</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F39_2F"><a href="http://www.majormoves.net/category/39/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F39_2F">drupal7教程</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F37_2F"><a href="http://www.majormoves.net/category/37/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F37_2F">drupal模块</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F45_2F"><a href="http://www.majormoves.net/category/45/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F45_2F">drupal问答</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F44_2F"><a href="http://www.majormoves.net/category/44/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F44_2F">drupal主题</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F38_2F"><a href="http://www.majormoves.net/category/38/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F38_2F">drupal开发</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F42_2F"><a href="http://www.majormoves.net/category/42/" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F42_2F">drupal案例</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F48_2F"><a href="http://www.majormoves.net/category/48/"  target="_blank"><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Fcategory_2F48_2F">drupal交流</span></a></span></li>
+<li><span id="nav_http_3A_2F_2Fwww.majormoves.net_2Ftag_3Ftag_3Dphp"><a href="http://www.majormoves.net/tag.php?tag=php" ><span id="navitem_http_3A_2F_2Fwww.majormoves.net_2Ftag_3Ftag_3Dphp">php学习</span></a></span></li>
+                            <li id="nav-rss"><a href="feed.php" target="_blank"><span>RSS</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="header-userbar">
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-box-tbar">
+            <div class="content-box-tbar-r">
+            <div class="content-box-tbar-l">
+            <span class="right-links"></span>
+            </div>
+            </div>
+        </div>
+		<div id="mainWrapper">
+			<div id="content" class="content">
+				<div id="innerContent">
+					<div class="announce" style="display: none">
+						<div class="announce-content">
+						
+						</div>
+					</div>
+					<div class="article-top" style="display: none">
+						<div class="pages">
+							
+						</div>
+					</div>
+					<div class="textbox">
+	<div class="textbox-title">
+		<h4>
+		PHP语句打印数组内容 <span id="starid454"><img src="template/neowin-red-3/images/others/unstarred.gif" alt="" title="未加星标" border="0"/></span> <img src="images/weather/blank.gif" alt="不指定" title="不指定"/> 
+		</h4>
+		<div class="textbox-label">
+		 drupal水滴 , 2010/01/22  09:51 , <a href="category/1/" title="查看分类： php">php</a> &raquo; <a href="category/25/" title="查看分类： php日志">php日志</a> , <a href="post/454/#reply" title="发表您的评论">评论(0)</a> , <a href="post/454/">阅读(6854)</a>  <span class="text-label-indented"><img src="template/neowin-red-3/images/toolbar_fontsize.gif" alt='' title="字体大小" border='0'/> <a href="javascript: doZoom(16);">大</a> | <a href="javascript: doZoom(14);">中</a> | <a href="javascript: doZoom(12);">小</a> <a href="feed.php?go=entry_454"><img src="template/neowin-red-3/images/toolbar_rss.gif" alt='' title="订阅本文" border='0'/></a></span>
+		</div>
+	</div>
+	<div id="tb454" style="display: none;" class="textbox-tburl"><strong>引用地址：</strong>  <span id='tbb454'></span><br/><strong>注意：</strong> 该地址仅在今日23:59:59之前有效</div>
+	
+	<div class="textbox-content" id="zoomtext">
+	 	 数组是PHP中变量的一种，在PHP开发中经常使用，因此非常重要，使用PHP语句打印数组内容。<br/><div class="quote"><div class="quote-title">引用</div><div class="quote-content"><br/>1、 使用 print_r ( $array/$var )<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print 是打印的意思，而r则取自Array的单词，那么该函数的功能就是打印数组内容，它既可以打印数组内容，也可以打印普通的变量。<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r ($_REQUEST) ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r ($_GET) ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/* 打印使用GET方法传递的表单内容*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print_r($_POST) ;&nbsp;&nbsp;&nbsp;&nbsp;/* 打印使用表单POST方法传递过的数组内容*/<br/><br/>2、 使用 var_dump ($object/$array/$var)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var 代表变量（Variable），变量包括对象、数组以及标量变量，dump有倒出之意，加在一块，就是将变量或对象的内容全部输出出来。<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_dump($DB) ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*打印$DB数据库连接对象的内容*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_dump($fileHandle) ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /*打印文件句柄对象的内容*/<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_dump($Smarty) ;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/*打印Smarty模板对象*/<br/><br/>3、 使用 var_export($object/$array/$var)<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输出或返回一个变量的字符表示。此函数返回关于传递给函数的变量的结构信息，它和print_r()类似，不同的是其返回的表示是合法的PHP代码。可以通过将函数的第二个参数设置为TRUE，从而返回变量的表示。<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;例如：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$a = array ( 1,2, array("a","b","c")) ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var_export ($a) ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo "<br/>" ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$v = var_export ( $a , TRUE) ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo $v ;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ?><br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上例中，$v = var_export ( $a , TRUE) 表示返回的是PHP的源代码，可以直接用PHP脚本的数组文件中。<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;相关说明：<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;以上三个函数都可以打印对象的值、系统函数值以及数组的内容；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;△&nbsp;&nbsp;echo 、print、printf可以打印变量内容，但不能显示数组及系统超级变量数组；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;△&nbsp;&nbsp;print_r 和 var_dump不仅可以打印数组、标量变量，还可以打印对象的内容；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;△&nbsp;&nbsp;var_dump语句不仅能打印变量、数组内容，还可以显示布尔变量和资源（Resource）的内容；<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;△&nbsp;&nbsp;var_export 函数返回关于传递给该函数的变量的结构信息，和 var_dump()函数类似，不同的是其返回的内容是合法的PHP代码。<br/></div></div><!-- Added by RelatedTopic, plugin for Bo-Blog 2.0.0 --><div style='clear: both; text-align: left; margin-top: 12px; padding: 5px; margin-bottom: 15px;'><strong>相关日志</strong><br/><a href="read.php?2231">帝国CMS获取前后台登陆用户信息 </a><br/><a href="read.php?2229">帝国外表关联的时候做一个判断</a><br/><a href="read.php?2227">iconv编码转换</a><br/><a href="read.php?2213">supplied argument is not a valid MySQL result resource</a><br/><a href="read.php?2212">in_array的判断</a><br/></div><!-- RelatedTopic over --> 
+	</div>
+	<div class="textbox-bottom">
+	</div>
+	<div class="tags" style="display: block"> Tags:  <a href="tags/php/" title="Tags:  php" rel="tag">php</a> , <a href="tags/array/" title="Tags:  array" rel="tag">array</a> , <a href="tags/var_dump/" title="Tags:  var dump" rel="tag">var dump</a> , <a href="tags/var_export/" title="Tags:  var export" rel="tag">var export</a> , <a href="tags/print_r/" title="Tags:  print r" rel="tag">print r</a>
+	</div>
+</div>
+<div class="article-top">
+	<div class="prev-article"><a href="post/453/" title="上一篇 根据format字符串格式化date值。"><img src="template/neowin-red-3/images/toolbar_previous.gif" alt='' border='0'/>根据format字符串格式化date值。</a></div>
+	<div class="next-article"><a href="post/455/" title="下一篇 PHP中对值或者数组元素进行排序"><img src="template/neowin-red-3/images/toolbar_next.gif" alt='' border='0'/>PHP中对值或者数组元素进行排序</a></div>
+</div>
+<div id="commentWrapper" class="comment-wrapper">
+	<a name="topreply"></a>
+	<div id="addnew"></div>	<div class="comment-pages">
+	
+	</div>
+</div>
+
+					<div class="article-bottom" style="display: none">
+						<div class="pages">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="sidebar" class="sidebar">
+			<div id="innerSidebar">
+				<div id="innerSidebarOne">
+					<div class="panel">
+<h5 onclick='showhidediv("sidebar_archive");'>归档</h5>
+<div class="panel-content" id="sidebar_archive" style="display: none">
+<ul><li><a href="archiver/6/2014/" rel="noindex,nofollow">2014/06</a></li>
+<li><a href="archiver/5/2014/" rel="noindex,nofollow">2014/05</a></li>
+<li><a href="archiver/4/2014/" rel="noindex,nofollow">2014/04</a></li>
+<li><a href="archiver/3/2014/" rel="noindex,nofollow">2014/03</a></li>
+<li><a href="archiver/2/2014/" rel="noindex,nofollow">2014/02</a></li></ul>
+</div>
+</div><div class="panel">
+<h5 onclick='showhidediv("sidebar_misc");'>其他</h5>
+<div class="panel-content" id="sidebar_misc" style="display: block">
+<a href='login.php'>登入</a><br/><a href='login.php?job=register'>注册</a><br/><a href='login.php?job=applylink'>申请链接</a><br/>RSS： <a href='feed.php'>日志</a> | <a href='feed.php?go=comment'>评论</a><br/>编码：UTF-8<br/><a href="http://validator.w3.org/check?uri=referer" target="_blank">XHTML 1.0</a>
+</div>
+</div><div class="panel">
+<h5 onclick='showhidediv("sidebar_sidetags");'>热门Tags</h5>
+<div class="panel-content" id="sidebar_sidetags" style="display: block">
+<ul><li><a href="tag.php?tag=drupal">drupal</a> [341]</li><li><a href="tag.php?tag=drupal_module">drupal_module</a> [326]</li></ul>
+</div>
+</div>
+				</div>
+				<div id="innerSidebarTwo">
+					<div id='panelCategory' class="panel">
+<h5 style="cursor: pointer" onclick='showhidediv("sideblock_category");'>分类</h5>
+<div class="panel-content" id="sideblock_category" style="display: block">
+<ul><li><a href="category/45/" title="drupal常见问题">drupal问答</a> [260] <a href="feed.php?go=category_45"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/48/" title="drupal在线分享">drupal在线分享</a> [12] <a href="feed.php?go=category_48"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/46/" title="drupal相关的api">drupal api</a> [9] <a href="feed.php?go=category_46"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/49/" title="drupal8相关教程">drupa8</a> [1] <a href="feed.php?go=category_49"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/47/" title="有关drupal核心模块的系列文章">drupal模块分析</a> [5] <a href="feed.php?go=category_47"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/35/" title="drupal建站相关资料">drupal建站</a> [170] <a href="feed.php?go=category_35"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/44/" title="drupal主题相关">drupal主题</a> [19] <a href="feed.php?go=category_44"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/43/" title="drupal数据库">drupal数据库</a> [6] <a href="feed.php?go=category_43"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/42/" title="drupal相关建站案例分析">drupal案例</a> [30] <a href="feed.php?go=category_42"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/41/" title="drupal ckk相关资料">ckk相关</a> [4] <a href="feed.php?go=category_41"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/40/" title="drupal views相关资料">views相关</a> [2] <a href="feed.php?go=category_40"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/39/" title="drupal7学习笔记">drupal7教程</a> [166] <a href="feed.php?go=category_39"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/38/" title="drupal开发的相关教程">drupal开发</a> [302] <a href="feed.php?go=category_38"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/37/" title="关于drupal模块相关的内容">drupal模块</a> [291] <a href="feed.php?go=category_37"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/1/" title="php">php</a> [74] <a href="feed.php?go=category_1"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/36/" title="php数组相关操作">php数组</a> [2] <a href="feed.php?go=category_36"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/34/" title="Joomla建站">Joomla建站</a> [44] <a href="feed.php?go=category_34"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/26/" title="phpwind使用和分析">phpwind</a> [9] <a href="feed.php?go=category_26"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/25/" title="对工作中遇到问题的解决记录">php日志</a> [154] <a href="feed.php?go=category_25"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/22/" title="php常用函数">php常用函数</a> [45] <a href="feed.php?go=category_22"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/20/" title="com函数">com函数</a> [1] <a href="feed.php?go=category_20"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/18/" title="excel控件">excel控件</a> [7] <a href="feed.php?go=category_18"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/2/" title="zend Framework">zend Framework</a> [6] <a href="feed.php?go=category_2"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/3/" title="html 相关">html</a> [207] <a href="feed.php?go=category_3"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/31/" title="网站优化">网站优化</a> [26] <a href="feed.php?go=category_31"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/4/" title="搜索引擎">搜索引擎</a> [2] <a href="feed.php?go=category_4"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/5/" title="mysql">mysql</a> [94] <a href="feed.php?go=category_5"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/32/" title="mysql优化">mysql优化</a> [30] <a href="feed.php?go=category_32"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li class="indent"><a href="category/21/" title="mysql数据定义语句">mysql函数</a> [22] <a href="feed.php?go=category_21"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/6/" title="php 手册命令">php 手册命令</a> [5] <a href="feed.php?go=category_6"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/7/" title="风俗习惯">风俗习惯</a> [1] <a href="feed.php?go=category_7"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/51/" title="口语">口语</a> [1] <a href="feed.php?go=category_51"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/50/" title="口语">口语</a> [0] <a href="feed.php?go=category_50"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/8/" title="新概念英语二册">新概念英语二册</a> [8] <a href="feed.php?go=category_8"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/9/" title="dreamweaver">dreamweaver</a> [2] <a href="feed.php?go=category_9"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/10/" title="apache">apache</a> [13] <a href="feed.php?go=category_10"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/11/" title="C# 2005 & .NET 3.0高级编程(第5版) ">C# 2005 &amp; .NET 3.0高级编程(第5版) </a> [21] <a href="feed.php?go=category_11"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/12/" title="editplus">editplus</a> [1] <a href="feed.php?go=category_12"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/13/" title="多线程">多线程</a> [3] <a href="feed.php?go=category_13"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/14/" title="Javascript">Javascript</a> [72] <a href="feed.php?go=category_14"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/15/" title="关于phpcms问题的收集">phpcms</a> [0] <a href="feed.php?go=category_15"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/16/" title="freebsd">freebsd</a> [45] <a href="feed.php?go=category_16"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/17/" title="wordpress">wordpress</a> [6] <a href="feed.php?go=category_17"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/19/" title=".net编程">.net编程</a> [1] <a href="feed.php?go=category_19"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/23/" title="每日一句">每日一句</a> [16] <a href="feed.php?go=category_23"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/24/" title="批处理文件">批处理文件</a> [4] <a href="feed.php?go=category_24"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/27/" title="php源码">php源码</a> [0] <a href="feed.php?go=category_27"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/29/" title="PHP下FPDF创建PDF文档示例">fpdf</a> [6] <a href="feed.php?go=category_29"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/30/" title="css">css</a> [3] <a href="feed.php?go=category_30"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li><li><a href="category/33/" title="linux">linux</a> [29] <a href="feed.php?go=category_33"><img src="template/neowin-red-3/images/rss.png" border="0" alt="RSS" title="追踪这个分类的RSS" /></a></li></ul>
+</div>
+</div><div class="panel">
+<h5 onclick='showhidediv("sidebar_entries");'>最新日志</h5>
+<div class="panel-content" id="sidebar_entries" style="display: block">
+<ul><li class='rowcouple'><a href="post/2252/" title="linux mail 命令参数">linux mail 命...</a></li><li class='rowodd'><a href="post/2251/" title="checkbox未选中状态不传递value的解决办法">checkbox未选中状...</a></li><li class='rowcouple'><a href="post/2250/" title="查看mysql数据库大小及每个表最后修改时间">查看mysql数据库大小...</a></li><li class='rowodd'><a href="post/2249/" title="字符串替换模块">字符串替换模块</a></li><li class='rowcouple'><a href="post/2248/" title="使用html代码在l()">使用html代码在l()</a></li><li class='rowodd'><a href="post/2247/" title="google check out">google check...</a></li><li class='rowcouple'><a href="post/2246/" title="2014年Drupal中国营">2014年Drupal中...</a></li><li class='rowodd'><a href="post/2245/" title="菜单导航各种效果">菜单导航各种效果</a></li><li class='rowcouple'><a href="post/2244/" title="使用PHPProxy把虚拟空间变成HTTP代理[转]">使用PHPProxy把虚...</a></li><li class='rowodd'><a href="post/2243/" title="paypal api test网址">paypal api t...</a></li><li class='rowcouple'><a href="post/2242/" title="提交表单内容返回后保留填写的内容[转]">提交表单内容返回后保留填...</a></li><li class='rowodd'><a href="post/2241/" title="js操作Cookie，实现历史浏览记录【转】">js操作Cookie，实...</a></li><li class='rowcouple'><a href="post/2240/" title="口语短句 Let&#039;s keep it between us. 这事就我俩知道">口语短句 Let&#03...</a></li><li class='rowodd'><a href="post/2239/" title="CentOS安装pptp vpn">CentOS安装pptp...</a></li><li class='rowcouple'><a href="post/2238/" title="less搜索命令">less搜索命令</a></li></ul>
+</div>
+</div><div class="panel">
+<h5 onclick='showhidediv("sidebar_calendar");'>日历</h5>
+<div class="panel-content" id="sidebar_calendar" style="display: block">
+<table id="calendar" cellspacing="1" width="100%">
+<tbody><tr><td colspan="7" class="calendar-top">
+<a href="archiver/6/2013/" rel="noindex,nofollow">&lt;</a>
+<a href="archive.php" rel="noindex,nofollow"><span class="calendar-year">2014</span></a>
+<a href="archiver/6/2015/" rel="noindex,nofollow">&gt;</a>
+	&nbsp;&nbsp;
+<a href="archiver/5/2014/" rel="noindex,nofollow">&lt;</a>
+<a href="archiver/6/2014/" rel="noindex,nofollow"><span class="calendar-month">6</span></a>
+<a href="archiver/7/2014/" rel="noindex,nofollow">&gt;</a>
+</td></tr>
+<tr class="calendar-weekdays">
+	<td class="calendar-weekday-cell">日</td>
+	<td class="calendar-weekday-cell">一</td>
+	<td class="calendar-weekday-cell">二</td>
+	<td class="calendar-weekday-cell">三</td>
+	<td class="calendar-weekday-cell">四</td>
+	<td class="calendar-weekday-cell">五</td>
+	<td class="calendar-weekday-cell">六</td>
+</tr>
+<tr class="calendar-weekdays"><td id="cal1" class="calendar-sunday">1</td><td id="cal2" class="calendar-day">2</td><td id="cal3" class="calendar-day">3</td><td id="cal4" class="calendar-today">4</td><td id="cal5" class="calendar-day">5</td><td id="cal6" class="calendar-day">6</td><td id="cal7" class="calendar-saturday">7</td></tr><tr class="calendar-weekdays"><td id="cal8" class="calendar-sunday">8</td><td id="cal9" class="calendar-day">9</td><td id="cal10" class="calendar-day">10</td><td id="cal11" class="calendar-day">11</td><td id="cal12" class="calendar-day">12</td><td id="cal13" class="calendar-day">13</td><td id="cal14" class="calendar-saturday">14</td></tr><tr class="calendar-weekdays"><td id="cal15" class="calendar-sunday">15</td><td id="cal16" class="calendar-day">16</td><td id="cal17" class="calendar-day">17</td><td id="cal18" class="calendar-day">18</td><td id="cal19" class="calendar-day">19</td><td id="cal20" class="calendar-day">20</td><td id="cal21" class="calendar-saturday">21</td></tr><tr class="calendar-weekdays"><td id="cal22" class="calendar-sunday">22</td><td id="cal23" class="calendar-day">23</td><td id="cal24" class="calendar-day">24</td><td id="cal25" class="calendar-day">25</td><td id="cal26" class="calendar-day">26</td><td id="cal27" class="calendar-day">27</td><td id="cal28" class="calendar-saturday">28</td></tr><tr class="calendar-weekdays"><td id="cal29" class="calendar-sunday">29</td><td id="cal30" class="calendar-day">30</td><td class="calendar-day"></td><td class="calendar-day"></td><td class="calendar-day"></td><td class="calendar-day"></td><td class="calendar-saturday"></td></tr>
+</tbody></table>
+</div>
+</div><div class="panel">
+<h5 onclick='showhidediv("sidebar_statistics");'>统计</h5>
+<div class="panel-content" id="sidebar_statistics" style="display: none">
+访问次数 2581977<br/>今日访问 215<br/>在线人数 24<br/>
+</div>
+</div><div class="panel" id="sidebar_search">
+<form action="visit.php" method="post">
+<div>
+<input type="hidden" value="search" name="job" />
+<input type="hidden" value="2" name="searchmethod" />
+<input id="s" class="s" type="text" onfocus="this.className='s_over'" onblur="if (value ==''){this.className='s';} if (value !='') {this.className='s_over';} " size="20" name="keyword"/>
+<input id="searchsubmit" class="button" type="submit" value="搜索" name="submit"/>
+</div>
+</form>
+</div>
+				</div>
+                <div class="clear"></div>
+			</div>
+		</div>
+            <div class="clear"> </div>
+		</div>
+        <div class="content-box-b">
+            <div class="content-box-b-r">
+            <div class="content-box-b-l"></div>
+            </div>
+        </div>
+		<div id="footer">
+            <div id="footer-r">
+                <div id="footer-l">
+                    <div id="footer-copyright">
+                         Powered by <a href="http://www.bo-blog.com" target="_blank">Bo-Blog 2.1.1 Release</a><span id="footer-security"><a href="http://www.cnbct.org" target="_blank" title="Code detection by Bug.Center.Team"><img src="images/others/detect.gif" alt="Code detection by Bug.Center.Team" border="0" /></a></span>
+                        <div id="processtime">
+				        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+		</div>
+</div>
+<script type="text/javascript">
+loadSidebar();
+</script>
+<script type='text/javascript'>
+//<![CDATA[
+if (document.getElementById('processtime')) document.getElementById('processtime').innerHTML="<span class='runtimedisplay'>Run in 108 ms, 8 Queries.</span>";
+//]]>
+</script></body>
+</html>

@@ -1,0 +1,10 @@
+curl
+
+php curl
+ 设置 curl_setopt($ch, CURLOPT_HEADER, true);
+ 返回信息里正则获取Location:部分
+ preg_match('/^Location: (?P<location>.*?)$/m', $hmtl，$match)
+ Location:后面的地址就是跳转后的地址。 
+ 
+ 
+ get_meta_tags

@@ -1,0 +1,308 @@
+项目:article
+数据库:article
+编码:utf-8
+需求分析
+后台管理系统:
+文章管理列表
+文章发布程序
+文章修改程序
+文章删除程序
+
+前台展示页面:
+文章列表
+文章内容页
+
+数据库表设计
+
+表名:article     用于存放文章
+字段          类型          空     默认     注释
+id          int(11)          否                 文章编号
+title       char(100)      否                 文章标题
+author   char(50)        否                 文章作者
+description varchar(255)   否            文章简介
+content     text          否                    文章内容
+dateline     int(11)     否     0             发布时间
+
+目录规划\程序文件规划及命名
+article                                                 文章发布系统根目录
+     admin                                            后台系统目录
+          article.add.php                           文章添加界面
+          article.add.handle.php                 文章添加处理程序
+          article.modify.php                       文章修改界面
+          article.modify.handle.php            文章修改处理程序
+          article.del.handle.php                 文章删除处理程序
+          article.manage.php                    文章管理列表
+article.list.php                             前台文章展示列表                                  
+article.show.php                         前台文章内容页
+config.php                                  配置文件
+connect.php                                MYSQL链接初始化程序
+
+文章发布系统-mysql链接\初始化程序
+文化编写意义:统一配置\方便管理\减少代码冗余
+配置文件编写:config.php
+MYSQL初始化程序文件编写:connect.php
+config.php配置
+<?php
+      header( "Content-type:text/html;charset=utf-8" );
+       //定义常量用difine()
+      define( 'HOST','127.0.0.1' );
+      define( 'USERNAME', 'root' );
+      define( 'PASSWORD','root' );
+?>
+connect.php
+<?php
+       require_once ('config.php' );
+       //1.链接数据库
+       if(!$con = mysql_connect(HOST,USERNAME,PASSWORD)){
+             echo "数据库连接失败";
+             echo mysql_error();
+      }
+       //2.选择数据库
+       if(!mysql_select_db('article' )){
+             echo mysql_error();
+      }
+       //3.定义字符集
+       if(!mysql_query("set names 'utf8'" )){
+             echo mysql_error();
+      }   
+?>
+
+文章发布系统-文章发布
+文章发布界面编写:article.add.php     
+文章发布处理程序的编写:article.add.handle.php
+程序测试
+
+文章发布界面编写:article.add.php     //核心代码
+<form id= "form1" name ="form1" method="post" action="article.add.handle.php" >
+      <table width="779" border="0" cellpadding= "8" cellspacing ="1">
+        <tr>
+          <td colspan="2" align="center"> 发布文章</td >
+          </tr>
+        <tr>
+          <td width="119" >标题</ td>
+          <td width="625" ><label for="title" ></label>
+            <input type="text" name="title" id= "title" /></ td>
+        </tr>
+        <tr>
+          <td> 作者</td >
+          <td>< input type ="text" name="author" id="author" /></td>
+        </tr>
+        <tr>
+          <td> 简介</td >
+          <td>< label for ="description"></ label>
+            <textarea name="description" id="description" cols="60" rows="5" ></textarea></ td>
+        </tr>
+        <tr>
+          <td> 内容</td >
+          <td>< textarea name ="content" cols="60" rows="15" id="content" ></textarea></ td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">< input type ="submit" name="button" id="button" value="提交" /></td >
+          </tr>
+      </table >
+    </form >
+
+文章发布处理程序的编写:article.add.handle.php
+<?php
+       require_once('../connect.php' );
+       //把传递过来的信息入库,在入库之前对所有的信息进行校验。
+       if(!(isset ($_POST['title'])&&(! empty($_POST['title' ])))){
+             echo "<script>alert('标题不能为空');window.location.href='article.add.php';</script>" ;
+      }
+      $title = $_POST[ 'title'];
+      $author = $_POST[ 'author'];
+      $description = $_POST[ 'description'];
+      $content = $_POST[ 'content'];
+      $dateline =  time();
+      $insertsql = "insert into article(title, author, description, content, dateline) values('$title', '$author ', '$description', '$content', $dateline )";
+       if(mysql_query($insertsql)){
+             echo "<script>alert('发布文章成功');window.location.href='article.manage.php';</script>" ;
+      } else{
+             echo "<script>alert('发布失败');window.location.href='article.manage.php';</script>" ;
+      }
+?>
+
+文章发布系统-文章修改
+文章修改界面编写article.modify.php
+文章修改处理程序的编写article.modify.handle.php
+程序测试
+
+文章修改界面编写article.modify.php       //核心代码
+<?php
+       require_once('../connect.php' );
+       //读取旧信息
+      $id = $_GET[ 'id'];
+      $query = mysql_query( "select * from article where id= $id");
+      $data = mysql_fetch_assoc($query);
+?>
+<form id= "form1" name ="form1" method="post" action="article.modify.handle.php" >
+     //提交一个id给article.modify.handle.php处理,隐藏在表单中
+      <input type="hidden" name="id" value="<?php echo $data['id']?>" />
+      <table width="590" border="0" cellpadding= "8" cellspacing ="1">
+        <tr>
+          <td colspan="2" align="center"> 修改文章</td >
+          </tr>
+        <tr>
+          <td width="119" >标题</ td>
+          <td width="437" ><label for="title" ></label>
+            <input type="text" name="title" id= "title" value =" <?php echo $data['title']?>" /></td>
+        </tr>
+        <tr>
+          <td> 作者</td >
+          <td>< input type ="text" name="author" id="author"  value=" <?php echo $data['author' ]?> "/></td >
+        </tr>
+        <tr>
+          <td> 简介</td >
+          <td>< label for ="description"></ label>
+            <textarea name="description" id="description" cols="60" rows="5" ><?php echo $data['description' ]?> </textarea></ td>
+        </tr>
+        <tr>
+          <td> 内容</td >
+          <td>< textarea name ="content" cols="60" rows="20" id="content" ><?php echo $data['content' ]?> </textarea></ td>
+        </tr>
+        <tr>
+          <td colspan="2" align="right">< input type ="submit" name="button" id="button" value="提交" /></td >
+          </tr>
+      </table >
+    </form >
+
+文章修改处理程序的编写article.modify.handle.php
+<?php
+       require_once('../connect.php' );
+      $id = $_POST[ 'id'];
+      $title = $_POST[ 'title'];
+      $author = $_POST[ 'author'];
+      $description = $_POST[ 'description'];
+      $content = $_POST[ 'content'];
+      $dateline =  time();
+      $updatesql = "update article set title='$title',author='$author ',description='$description',content=' $content',dateline=$dateline where id=$id" ;
+       if(mysql_query($updatesql)){
+             echo "<script>alert('修改文章成功');window.location.href='article.manage.php';</script>" ;
+      } else{
+             echo "<script>alert('修改文章失败');window.location.href='article.manage.php';</script>" ;
+      }
+?>
+
+文章发布系统-文章删除
+文章删除编写article.del.handle.php
+<?php
+       require_once('../connect.php' );
+      $id = $_GET[ 'id'];
+      $deletesql = "delete from article where id=$id" ;
+       if(mysql_query($deletesql)){
+             echo "<script>alert('删除文章成功');window.location.href='article.manage.php';</script>" ;
+      } else{
+             echo "<script>alert('删除文章失败');window.location.href='article.manage.php';</script>" ;
+      }
+?>
+
+
+文章发布系统-文章管理
+article.manage.php
+<?php
+       require_once('../connect.php' );
+      $sql = "select * from article order by dateline desc" ;
+      $query  = mysql_query($sql);
+       if($query&&mysql_num_rows($query)){
+             while($row =mysql_fetch_assoc($query)){
+                  $data[] = $row;
+            }
+      } else{
+            $data = array();
+      }
+
+?>
+
+
+文章发布系统-前台部分
+前台:文章列表--文章内容,文章检索,关于我们,联系我们
+
+文章发布系统-列表显示
+前台文章展示列表的程序编写article.list.php     //核心代码
+<?php
+       require_once('connect.php' );
+      $sql = "select * from article order by dateline desc" ;
+      $query = mysql_query($sql);
+       if($query&&mysql_num_rows($query)){
+             while($row = mysql_fetch_assoc($query)){
+                  $data[] = $row;
+            }
+      }
+?>
+
+
+<div id= "content">
+       <?php
+             if(empty ($data)){ 
+                   echo "当前没有文章，请管理员在后台添加文章" ;
+            } else{
+                   foreach($data as $value){
+       ?>
+             <div class="post" >
+                   <h1 class="title" ><?php echo $value['title' ]?> <span style="color :#ccc;font-size: 14px;"> 　　作者：<!--作者放置到这里--><?php echo $value['author' ]?> </span></ h1>
+                   <div class="entry" >
+                         <?php echo $value['description'] ?>
+                   </div>
+                   <div class="meta" >
+                         <p class="links" ><a href=" article.show.php?id=<?php echo $value['id' ]?> " class="more"> 查看详细</a >&nbsp;&nbsp;&raquo;&nbsp;&nbsp;</p >
+                   </div>
+             </div>
+       <?php
+                  }
+            }
+       ?>
+       </div>
+
+
+文章发布系统-文章详情页
+前台文章详情页的程序编写article.show.php  //核心部分
+<?php
+       require_once('connect.php' );
+      $id = intval($_GET[ 'id']);
+      $sql = "select * from article where id= $id";
+      $query = mysql_query($sql);
+       if($query&&mysql_num_rows($query)){
+            $row = mysql_fetch_assoc($query);
+      } else{
+             echo "这篇文章不存在";
+             exit;
+      }
+?>
+
+<!-- start content -->
+       <div id= "content">
+             <div class="post" >
+                   <h1 class="title" ><!--文章标题放置到这里--><?php echo $row['title']?>< span style ="color:#ccc; font-size:14px ;">　　作者： <!--作者放置到这里--> <?php echo $row['author']; ?></span ></h1>
+                   <div class="entry" >
+                         <!--文章内容放置到这里-->
+                         <?php echo $row['content'] ?>
+                   </div>
+             </div>
+       </div>
+<!-- end content -->
+
+
+文章发布系统-文章检索功能
+前台文章检索功能的编写article.search.php  //核心部分
+实质是吧article.list.php里面的sql,增加了检索条件
+例如:select * from article where title like "查询值%"
+
+<?php
+       require_once('connect.php' );
+      $key = $_GET[ 'key'];
+      $sql = "select * from article where title like '% $key%' order by dateline desc";
+      $query = mysql_query($sql);
+       if($query&&mysql_num_rows($query)){
+             while($row = mysql_fetch_assoc($query)){
+                  $data[] = $row;
+            }
+      }
+?>
+
+在article.list.php中添加以下代码:name ="key"发送到上面的search页面
+<form method="get" action="article.search.php">
+                               <fieldset>
+                               <input type="text" id="s" name="key" value="" />
+                               <input type="submit" id="x" value="Search" />
+                               </fieldset>
+                         </form>

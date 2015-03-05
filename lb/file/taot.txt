@@ -1,0 +1,32 @@
+taot规则
+
+[0]=>{
+		[url]=>http://detail.tmall.com/item.htm?id=35424033473,
+		[img]=>http://gi2.md.alicdn.com/bao/uploaded/i2/TB1.8b8GFXXXXaqXXXXXXXXXXXX_!!0-item_pic.jpg_290x290.jpg,
+		[title]=>大码修身呢子大衣S-2XL 原价698元 拍下价格78元多数地区包邮,
+		[pirce]=>78,
+		[opirce]=>698
+	}
+	,
+	
+	
+
+INSERT INTO `yufu_tuan`(`catid`,`sitetitle`,`keywords`,`title`,`price`,`hdprice`,`starttime`,`endtime`,`buyurl`,`thumb`,`monthsale`,`brand`,`create_time`,`update_time`)
+VALUES(212,'[标题]','[标题]','[标题]',[现价],[现价],[现行时间戳],[某天后时间戳],'http://[商品链接]','[图片地址]',[月销量],'[ID]',[现行时间戳],[现行时间戳]);
+
+
+文件:wen.txt
+按行读取文件内容到数组contenta
+
+在另外一个文件夹新建wen.txt
+
+读取一行
+得到url,img,title,price,opirce字段赋值给变量
+
+输出一行到wen.txt
+可变的变量:yufu_tuan	,myid,某天后时间戳
+INSERT INTO `yufu_tuan`(`catid`,`sitetitle`,`keywords`,`title`,`price`,`hdprice`,`starttime`,`endtime`,`buyurl`,`thumb`,`monthsale`,`brand`,`create_time`,`update_time`)
+VALUES(myid,'[标题]','[标题]','[标题]',[原价opirce],[现价price],[现行时间戳now()],[某天后时间戳],'[商品链接]url','[图片地址]',[月销量],'[ID]',[现行时间戳],[现行时间戳]);
+
+
+

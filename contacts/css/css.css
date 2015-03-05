@@ -1,0 +1,49 @@
+*{padding:0; margin:0;}
+body{font-size:12px;}
+table td{ line-height:20px; padding:2px;}
+ul li{ list-style:none;}
+h1.top{ width:960px; text-align:center; margin:0 auto;}
+.mainbox{ width:960px; margin:0px auto; }
+.nav {width:960px; margin:5px auto; height:30px;}
+.nav li{ width:120px; line-height:24px; display:inline; text-align:center}
+.wel{ font-size:14px; text-align:center;}
+#addform1{ width:200px; margin:0px auto;}
+#addform1 p{ line-height:25px}
+#addform1 .sex input{ width:30px;}
+.acenter{ text-align:center}
+/* tables */
+table.tablesorter {
+	font-family:arial;
+	background-color: #CDCDCD;
+	width: 960px; margin:0px auto;
+}
+table.tablesorter thead tr th,table.tablesorter thead tr td, table.tablesorter tfoot tr th {
+	background-color: #e6EEEE;
+	border: 1px solid #FFF;
+	padding: 4px;
+}
+table.tablesorter thead tr .header {
+	background-image: url(../images/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	background-color: #FFF;
+	vertical-align: top;
+}
+table.tablesorter tbody tr.odd td {
+	background-color:#F0F0F6;
+}
+table.tablesorter thead tr .asc {
+	background-image: url(../images/asc.gif);
+}
+table.tablesorter thead tr .desc {
+	background-image: url(../images/desc.gif);
+}
+table.tablesorter thead tr .asc, table.tablesorter thead tr .desc {
+	background-color: #8dbdd8;
+}
+/*分页*/
+#pager{}

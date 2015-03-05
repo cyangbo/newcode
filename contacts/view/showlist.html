@@ -1,0 +1,68 @@
+<{include file="header.html" title=通讯录}>
+<div class="mainbox">
+    <form action="?m=contacts&a=getlist" method="post">
+        搜索 <select name="stype" id="stype">
+            <option selected="selected" value="id" >ID</option>
+            <option value="name">姓名</option>
+            <option value="email">邮箱</option>
+        </select>
+        <input name="skey" type="text" id="skey" />
+        <select name="order">
+            <option selected="selected" value="name,">姓名排序</option>
+            <option value="sex,">性别排序</option>
+            <option value="mobile,">手机号排序</option>
+        </select>
+        <input type="submit" value="提交搜索" />
+    </form>
+</div>
+<div class="mainbox">
+    <table id="myTable" class="tablesorter" cellspacing="1" cellpadding="0" border="0">
+        <thead>
+    　　    <tr>
+                <th class="header">编号</th>　　　　　 　
+                <th class="header">姓名</th>
+    　　　　    <th class="header">性别</th>
+    　　　　　  <th class="header">手机</th>
+    　　　　　  <th class="header">邮箱</th>
+    　　　　 　 <th class="header">地址</th>
+                <td>操作</td>
+    　　　　</tr>
+        </thead>
+        <tbody>
+        <{section name=cts_list loop=$cts_list}>
+            <tr>
+                <td><{$cts_list[cts_list].id}></td>　　　　 　 　
+                <td><{$cts_list[cts_list].name}></td>
+    　　　 　 　<td><{if $cts_list[cts_list].sex eq 1}>男<{else}>女<{/if}></td>
+    　　　 　 　<td><{$cts_list[cts_list].mobile}></td>
+    　　　 　 　<td><{$cts_list[cts_list].email}></td>
+    　　　　 　 <td><{$cts_list[cts_list].address}></td>
+                <td><a href="?m=contacts&a=edit&id=<{$cts_list[cts_list].id}>">编辑</a>|<a href="?m=contacts&a=del&id=<{$cts_list[cts_list].id}>">删除</a></td>
+    　　　　 </tr>
+        <{/section}>
+        </tbody>
+    </table>    
+    <div id="pager" class="pager">
+        <form>
+            <img src="images/first.png" class="first"/>
+            <img src="images/prev.png" class="prev"/>
+            <input type="text" class="pagedisplay"/>
+            <img src="images/next.png" class="next"/>
+            <img src="images/last.png" class="last"/>
+            <select class="pagesize">
+                <option selected="selected"  value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option  value="9">9</option>
+            </select>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function() {
+        $("#myTable")
+            .tablesorter({sortList: [[0,0]],widthFixed: true, widgets: ['zebra']})
+            .tablesorterPager({container: $("#pager")});
+    });
+</script>
+<{include file="footer.html"}>

@@ -1,0 +1,16 @@
+<{include file="header.html" title=通讯录}>
+<form id="addform1" name="form1" method="post" action="?m=contacts&a=add">
+    <p>姓名：<input name="name" type="text" id="name" /></p>
+　  <p class="sex">
+　      性别：<input type="radio" name="sex" value="0" />女士<input type="radio" name="sex" value="1" />先生
+　  </p>
+　  <p>手机：<input name="mobi" type="text" id="mobi"/></p>
+　  <p>邮箱：<input name="email" type="text" id="email" /></p>
+　  <p>地址：<input name="addr" type="text" id="addr"　/></p>
+　  <p>
+　　    <input name="todo" type="hidden" value="saveadd"　/>
+        <input type="submit" name="Submit" value="添加" />
+　　　　<input type="reset" name="Submit2" value="重写" />
+　  </p>
+</form>
+<{include file="footer.html"}>
