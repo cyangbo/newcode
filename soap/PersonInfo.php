@@ -14,5 +14,6 @@ Class PersonInfo
     
 }
 
-PersonInfo::getName();
+//$ss = new PersonInfo();
+//$ss->getName();
 ?>

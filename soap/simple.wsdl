@@ -1,0 +1,79 @@
+<?xml version ='1.0' encoding ='UTF-8' ?>
+
+<definitions name='SimpleHelloService'
+
+	targetNamespace='http://www.modernfidelity.co.uk/SimpleService'
+	xmlns:tns=' http://www.modernfidelity.co.uk/SimpleService' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema' xmlns:soapenc='http://schemas.xmlsoap.org/soap/encoding/'
+	xmlns:wsdl='http://schemas.xmlsoap.org/wsdl/' xmlns='http://schemas.xmlsoap.org/wsdl/'>
+
+
+	<!-- MESSAGES -->
+
+	<message name="getHelloRequest">
+		<part name="parameters" element="tns:getHelloRequest" />
+	</message>
+
+	<message name="getHelloResponse">
+		<part name="parameters" element="tns:getHelloResponse" />
+	</message>
+
+	<message name="getGoodbyeRequest">
+		<part name="parameters" element="tns:getGoodbyeRequest" />
+	</message>
+
+	<message name="getGoodbyeResponse">
+		<part name="parameters" element="tns:getGoodbyeResponse" />
+	</message>
+
+	<!-- PORT TYPE -->
+
+	<portType name="SimpleHello">
+		<operation name='getHello'>
+			<input message='tns:getHelloRequest' />
+			<output message='tns:getHelloResponse' />
+		</operation>
+
+		<wsdl:operation name="getGoodbye">
+			<wsdl:input message="getGoodbyeRequest"></wsdl:input>
+			<wsdl:output message="getGoodbyeResponse"></wsdl:output>
+		</wsdl:operation>
+	</portType>
+
+	<!-- BINDINGS -->
+
+	<binding name="SimpleHelloPortBinding" type="tns:SimpleHello">
+
+		<soap:binding style='rpc' transport='http://schemas.xmlsoap.org/soap/http' />
+
+		<operation name='getHello'>
+			<soap:operation soapAction='getHello' />
+			<input>
+				<soap:body use='encoded' namespace='http://www.modernfidelity.co.uk' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</input>
+			<output>
+				<soap:body use='encoded' namespace='http://www.modernfidelity.co.uk' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</output>
+		</operation>
+
+		<operation name='getGoodbye'>
+			<soap:operation soapAction='getGoodbye' />
+			<input>
+				<soap:body use='encoded' namespace='http://www.modernfidelity.co.uk' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</input>
+			<output>
+				<soap:body use='encoded' namespace='http://www.modernfidelity.co.uk' encodingStyle='http://schemas.xmlsoap.org/soap/encoding/' />
+			</output>
+		</operation>
+		
+	</binding>
+
+	<!-- SERVICE -->
+
+	<service name="SimpleHelloService">
+		<port name="SimpleHelloPort" binding="tns:SimpleHelloPortBinding">
+			<soap:address location='http://localhost:8080/simple-soap-server/server.php' />
+		</port>
+	</service>
+
+</definitions>
