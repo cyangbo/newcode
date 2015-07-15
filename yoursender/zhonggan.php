@@ -6,19 +6,47 @@ set_time_limit(1800) ;
  * 尾数6加4，其它数加11
  * 
  */
-static $a = 608930005;
-$b = array ();
+
+$fp = fopen ( 'zhec/HK_BBC_USE_10000.txt', 'w' );
+
+$outstring = "ssss";
+
+//起始单号
+//static $a = 609199995;
+
+//起始单号:610199993 
+static $a = 610199993;
+
+//个数
+static $b = 0;
+
+//$b = array ();
 do {
 	if (substr ( $a, - 1 ) == 6) {
 		$a = $a + 4;
 		echo $a . "\t\n";
+		
+		fwrite ($fp, $a . "\t\n");
+		
+		$b = $b + 1;
+		
 		//$b [$a] = $a;
 	} else {
 		$a = $a + 11;
 		echo $a . "\t\n";
 		//$b [$a] = $a;
+		fwrite ($fp, $a . "\t\n");
+		$b = $b + 1;
 	}
-} while ( $a < 609000005 );
+} while ( $b < 10000 );
+
+echo "最后单号:".$a;
+
+//向文件里写入一些数据
+//fwrite ($fp, $outstring);
+
+//当打开一个文件的时候，习惯性的将它关闭掉
+fclose ( $fp );
 
 /* foreach ( $b as $d ) {
 	echo $d . "\t\n";
