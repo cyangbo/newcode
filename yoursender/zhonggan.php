@@ -7,7 +7,7 @@ set_time_limit(1800) ;
  * 
  */
 
-$fp = fopen ( 'zhec/HK_BBC_USE_610300001_100000.txt', 'w' );
+$fp = fopen ( 'zhec/HK_BBC_BINGFAN_610300001_100000.txt', 'w' );
 
 $outstring = "ssss";
 
@@ -16,7 +16,7 @@ $outstring = "ssss";
 
 //起始单号:610199993 
 //static $a = 610299990;
-static $a = 610300001;
+static $a = 611300006;
 
 //个数
 static $b = 0;
@@ -39,7 +39,7 @@ do {
 		fwrite ($fp, $a . "\t\n");
 		$b = $b + 1;
 	}
-} while ( $b < 100000 );
+} while ( $b < 10000 );
 
 echo "最后单号:".$a;
 
