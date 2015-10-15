@@ -56,7 +56,7 @@ function createdir($hostpath,$html,$filename){
 	$file=$hostpath.'/'.$filename;
 	//print_r($file);exit('file');
 	//360.doc/index.html
-	//print_r('file文件内容写入路径:'.$file.'<br><br>');
+	//print_r('file文件内容写入路径:'.$file.'<br><br>');exit;
 	$oldumask=umask(0);
 	@mkdir($hostpath.'/');
 	@umask($oldumask);
@@ -108,7 +108,7 @@ function createdir($hostpath,$html,$filename){
 		//print_r($dir."/wenzhan/".$j.".txt");exit('sstt');
 		//D:\wamp\www\newcode\lb\mkdir/wenzhan/0.txt
 		//print_r('读取的文章内容路径:'.$dir."/wenzhan/".$j.".txt".'<br><br>');
-		$w=file($dir."/wenzhan/".$j.".txt");
+		$w=file($dir."/wz.txt");
 		//$w=file($dir."/wenzhan/1.txt");
 		//print_r($w);exit('$w');		//获取wenzhan/0.txt的文章(bug,当$j不为0时,$w为空
 		//print_r($temphtml);exit('$tempthml');
@@ -117,8 +117,11 @@ function createdir($hostpath,$html,$filename){
 		$temphtml = str_replace('$title$' , trim($w[0]), $temphtml);		//字符串title替换为0.txt第一行内容
 		
 		array_splice($w,0,1); //删除第一个元素
+		//print_r(implode('',$w));exit('$w111');
+		//print_r($w);exit('$w');
 		//print_r($w);exit('$w');
 		$temphtml = str_replace('$content$' ,implode('',$w) , $temphtml);
+		//print_r($temphtml);exit('temphtml');
 
 		$temphtml = str_replace('$miaoshu$' ,trim(varray_rand($miaoshu)) , $temphtml);
 		$temphtml = str_replace('$rand$' ,rand(50,200) , $temphtml);
@@ -175,6 +178,7 @@ function createdir($hostpath,$html,$filename){
 		$temphtml = str_replace('$fenye$' ,$fenye , $temphtml);
 		$app=$app.trim($mululist[$j]).'#'.trim($keylist[$j]).'$';
 		//print_r($app);exit('app');		//360.doc#360.doc$app
+		//print_r($temphtml);exit('temphtml');
 		createdir(trim($mululist[$j]),$temphtml,$ext);		//生成文件
 	}
 	echo $app." <br/>生成完成！";
