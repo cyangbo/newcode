@@ -2,34 +2,12 @@
 error_reporting(E_ERROR);
 set_time_limit(0);
 $dir= dirname(__FILE__);
-//print_r('dir'.$dir.'<br><br>');		//dirD:\wamp\www\newcode\lb\mkdir
-/**
- * 
-dir参数输出:D:\wamp\www\newcode\lb\mkdir
 
-have get $html获取到页面内容
-
-have get $$keylist获取到关键词数组内容
-
-have get $mululist获取到首拼数组内容
-
-have get $miaoshu获取到描述数组内容
-
-关键词数量:2709
-
-读取的文章内容路径:D:\wamp\www\newcode\lb\mkdir/wenzhan/0.txt
-
-字符串title替换为0.txt第一行内容:第002章　大难不死，必要报复 
-
-file文件内容写入路径:360.doc/index.html
-
-生成一个测试
- */
-//print_r('dir参数输出:'.$dir.'<br><br>');
 
 $ext='index.html';
 
 $tkeycount=260; //模板中友情链接数量
+$no = 100;		//读取文章行数
 
 function rarray_rand( $arr ){
 	return mt_rand( 0, count( $arr ) - 1 );
@@ -54,9 +32,7 @@ function createdir($hostpath,$html,$filename){
 
 	
 	$file=$hostpath.'/'.$filename;
-	//print_r($file);exit('file');
-	//360.doc/index.html
-	//print_r('file文件内容写入路径:'.$file.'<br><br>');exit;
+
 	$oldumask=umask(0);
 	@mkdir($hostpath.'/');
 	@umask($oldumask);
@@ -64,84 +40,34 @@ function createdir($hostpath,$html,$filename){
 	$james=fopen($file,"w");
 	fwrite($james,$html);
 	fclose($james);
-	//exit('生成一个测试');
+
 }
 	$html=file_get_contents($dir."/hemaomuban.html");		//模板内容
-	//print_r($html);exit;	
-	/* if($html){
-		print_r('have get $html获取到页面内容<br><br>');
-	}else{
-		print_r('not $html<br><br>');
-	} */
+
 	$keylist = file( $dir."/guanjianci.txt");				//关键词数组
-	/* if($keylist){
-		print_r('have get $$keylist获取到关键词数组内容<br><br>');
-	}else{
-		print_r('not $keylist<br><br>');
-	} */
-	//print_r($keylist);exit;
 	$mululist =  file( $dir."/pinying.txt");				//首拼数组
-	/* if($mululist){
-		print_r('have get $mululist获取到首拼数组内容<br><br>');
-	}else{
-		print_r('not $mululist<br><br>');
-	} */
-	//print_r($mululist);exit;		
-	
 	$miaoshu =  file( $dir."/miaoshu.txt");					//描述数组
-	//print_r($miaoshu);exit;
-	/* if($miaoshu){
-		print_r('have get $miaoshu获取到描述数组内容<br><br>');
-	}else{
-		print_r('not $miaoshu<br><br>');
-	} */
-	
 	$rand = count(explode('$rand$', $html)) - 1;
-	//print_r($rand);exit;		//0
 	$app='';
 	$fenye='';
-	//print_r(count($keylist));exit;						//2709
-	//循环关键词
-	//print_r('关键词数量:'.count($keylist).'<br><br>');
 	for($j=0;$j<count($keylist);$j++){
 		$temphtml=$html;
-		//print_r($dir."/wenzhan/".$j.".txt");exit('sstt');
-		//D:\wamp\www\newcode\lb\mkdir/wenzhan/0.txt
-		//print_r('读取的文章内容路径:'.$dir."/wenzhan/".$j.".txt".'<br><br>');
 		$w=file($dir."/wz.txt");
 		
 		$new_w = '';
-		
 		$wz_number = count($w);		//文章行数
 		$numbers = range(1,$wz_number);
 		shuffle($numbers);
-		//print_r($numbers);exit('number');
-		$no = 100;		//读取文章行数
+		
 		$low = array_slice($numbers,1,$no);	
-		//print_r($low);exit;	
 		for($i=0;$i<count($low);$i++){
 			$new_w = $new_w.$w[$low[$i]]."<br>";
 		}
-		//print_r($new_w);
-		//exit;
-		
-		
-		//print_r(count($w));			//文章行数
-		//print_r($w);exit('w');
-		//$w=file($dir."/wenzhan/1.txt");
-		//print_r($w);exit('$w');		//获取wenzhan/0.txt的文章(bug,当$j不为0时,$w为空
-		//print_r($temphtml);exit('$tempthml');
-		//print_r($w[0]);exit;		//0.txt第一行内容
-		//print_r('字符串title替换为0.txt第一行内容:'.$w[0].'<br><br>');
 		$temphtml = str_replace('$title$' , trim($w[0]), $temphtml);		//字符串title替换为0.txt第一行内容
 		
 		array_splice($w,0,1); //删除第一个元素
-		//print_r(implode('',$w));exit('$w111');
-		//print_r($w);exit('$w');
-		//print_r($w);exit('$w');
-		//$temphtml = str_replace('$content$' ,implode('',$w) , $temphtml);
 		$temphtml = str_replace('$content$' ,$new_w , $temphtml);
-		print_r($temphtml);exit('temphtml');
+		//print_r($temphtml);exit('temphtml');
 
 		$temphtml = str_replace('$miaoshu$' ,trim(varray_rand($miaoshu)) , $temphtml);
 		$temphtml = str_replace('$rand$' ,rand(50,200) , $temphtml);
@@ -197,8 +123,6 @@ function createdir($hostpath,$html,$filename){
 		
 		$temphtml = str_replace('$fenye$' ,$fenye , $temphtml);
 		$app=$app.trim($mululist[$j]).'#'.trim($keylist[$j]).'$';
-		//print_r($app);exit('app');		//360.doc#360.doc$app
-		//print_r($temphtml);exit('temphtml');
 		createdir(trim($mululist[$j]),$temphtml,$ext);		//生成文件
 	}
 	echo $app." <br/>生成完成！";
